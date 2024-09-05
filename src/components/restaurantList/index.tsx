@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 const RestaurantList = () => {
   const { id } = useParams();
 
+  const [ count, setCount] = useState();
   const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
   const [loading, setLoading] = useState(true);
 

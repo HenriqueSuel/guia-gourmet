@@ -206,5 +206,6 @@
       "tables": 15,
       "reservedTables": 5
     }
-  ]
+  ],
+  "rating": [{ "id": "1", "idRestaurant": "1", "rating": 3 }]
 }

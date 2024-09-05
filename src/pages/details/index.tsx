@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IRestaurant } from "../../interfaces/restaurant.interface";
 import data from "../../@mock/db.json";
+import { Counter } from "../../components/counter";
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
@@ -37,6 +38,8 @@ const Details = () => {
       <p className="text-gray-700 mt-2">{restaurant.description}</p>
       <p className="text-gray-700 mt-2">Price Range: {restaurant.price}</p>
       <p className="text-gray-700 mt-2">Category: {restaurant.category}</p>
+
+      <Counter />
     </div>
   );
 };
