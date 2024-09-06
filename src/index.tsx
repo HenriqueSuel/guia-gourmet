@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Details from "./pages/details";
 import { RestaurantProvider } from "./context/restaurant.context";
+import { Loading } from "./components/loading";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,6 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <RestaurantProvider>
+      <Loading />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
