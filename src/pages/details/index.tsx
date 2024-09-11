@@ -1,29 +1,30 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IRestaurant } from "../../interfaces/restaurant.interface";
-import data from "../../@mock/db.json";
+
 import { Counter } from "../../components/counter";
+import { useLoading } from "../../context/loading.context";
+import { useRestaurant } from "../../context/restaurant.context";
 
 const Details = () => {
-  const [loading, setLoading] = useState(true);
+  const { restaurants } = useRestaurant();
+  const { handleLoading } = useLoading();
   const [restaurant, setRestaurant] = useState<IRestaurant>();
   const { id } = useParams();
 
   useEffect(() => {
-    setLoading(true);
+    handleLoading(true);
     const info = new Promise<IRestaurant | undefined>((resolve) => {
       setTimeout(() => {
-        resolve(data.restaurants.find((item) => item.id === id));
+        resolve(restaurants.find((item) => item.id === id));
       }, 500);
     });
 
     info.then((resp) => {
-      setLoading(false);
+      handleLoading(false);
       setRestaurant(resp);
     });
   }, [id]);
-
-  if (loading) return <p>...Carregando</p>;
 
   if (!restaurant) return <p>Restaurante não encontrado</p>;
 

@@ -1,17 +1,21 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useLoading } from "./loading.context";
+import { IRestaurant } from "../interfaces/restaurant.interface";
+import data from "../@mock/db.json";
 
 // Criar a interface que vai conter os valores das variaveis/estados/funções globais
 interface RestaurantProps {
   rating: number;
   setRating: React.Dispatch<React.SetStateAction<number>>;
-  removeItem: (itemId: number) => void;
+  restaurants: IRestaurant[];
 }
 
 // Criar o contexto passando os valores default que tem na minha interface
 const RestaurantContext = createContext<RestaurantProps>({
   rating: 0,
   setRating: () => null,
-  removeItem: () => null,
+  restaurants: [],
 });
 
 interface RestaurantProviderProps {
@@ -26,23 +30,32 @@ interface ProductProps {
 // Criar o meu provider, ele que vai conter os variaveis/estados/funções globais.
 const RestaurantProvider = ({ children }: RestaurantProviderProps) => {
   const [rating, setRating] = useState<number>(0);
+  const { id } = useParams();
+  const { handleLoading } = useLoading();
+  const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
 
-  // rating.push({
-  //   name: "Teste",
-  //   price: 200,
-  //   quantity: 2,
-  // });
+  useEffect(() => {
+    handleLoading(true);
+    const info = new Promise<IRestaurant[]>((resolve) => {
+      setTimeout(() => {
+        resolve(
+          data.restaurants.filter((item) => (id ? item.category === id : true))
+        );
+      }, 2000);
+    });
 
-  const removeItem = (id: number) => {
-    //Logica
-  };
+    info.then((resp) => {
+      setRestaurants(resp);
+      handleLoading(false);
+    });
+  }, [id]);
 
   return (
     <RestaurantContext.Provider
       value={{
         rating, // isso é igual a isso -> rating: rating,
         setRating,
-        removeItem,
+        restaurants,
       }}
     >
       {children}

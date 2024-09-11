@@ -1,33 +1,9 @@
 import { RestaurantItem } from "../restaurantItem";
-import data from "../../@mock/db.json";
-import { useEffect, useState } from "react";
-import { IRestaurant } from "../../interfaces/restaurant.interface";
-import { useParams } from "react-router-dom";
+import { useRestaurant } from "../../context/restaurant.context";
+
 
 const RestaurantList = () => {
-  const { id } = useParams();
-
-  const [ count, setCount] = useState();
-  const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(true);
-    const info = new Promise<IRestaurant[]>((resolve) => {
-      setTimeout(() => {
-        resolve(
-          data.restaurants.filter((item) => (id ? item.category === id : true))
-        );
-      }, 500);
-    });
-
-    info.then((resp) => {
-      setRestaurants(resp);
-      setLoading(false);
-    });
-  }, [id]);
-
-  if (loading) return <p>...Carregando</p>;
+  const { restaurants } = useRestaurant();
 
   return (
     <div className="container m-auto">
