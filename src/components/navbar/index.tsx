@@ -1,10 +1,73 @@
 import { Link } from "react-router-dom";
-import data from "../../@mock/db.json";
 import { FaBell } from "react-icons/fa";
 import { useRestaurant } from "../../context/restaurant.context";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  collection,
+  getDocs,
+  DocumentData,
+  query,
+  where,
+  limit,
+} from "firebase/firestore";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  // pode deixar o db de forma global
+  // const db = getFirestore();
 
+  const [data, setData] = useState<DocumentData[]>([]);
+  /* Buscar um item apenas */
+  useEffect(() => {
+    const db = getFirestore();
+    const categoriesRef = doc(db, "categories", "dXzYJe35yqalysb15YxR");
+
+    getDoc(categoriesRef).then((item) => {
+      console.log(item.data());
+    });
+  }, []);
+
+  // Buscar todos os itens da collection
+  useEffect(() => {
+    const db = getFirestore();
+    const categoriesRef = collection(db, "categories");
+
+    getDocs(categoriesRef).then((categories) => {
+      const menu = categories.docs.map((category) => {
+        console.log("category", category.id);
+        return {
+          ...category.data(),
+
+          //Pegar o id do documento
+          id: category.id,
+        };
+      });
+
+      console.log("menu", menu);
+      // Setando no meu estado
+      setData(menu);
+    });
+  }, []);
+
+  // Fazer um filtro
+  useEffect(() => {
+    const db = getFirestore();
+
+    const queryRef = query(
+      collection(db, "categories"),
+      where("id", ">=", 3),
+      where("title", "==", "Italiano"),
+      limit(1)
+    );
+
+    getDocs(queryRef).then((categories) => {
+      const menu = categories.docs.map((category) => category.data());
+
+      console.log("menu Filtrado", menu);
+    });
+  }, []);
 
   const { rating } = useRestaurant();
 
@@ -16,9 +79,9 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center space-x-4">
-          {data.categories.map((category) => (
+          {data.map((category) => (
             <Link key={category.id} to={`/category/${category.id}`}>
-              {category.title}
+              {category.title} - {category.id}
             </Link>
           ))}
           <div className="relative">
