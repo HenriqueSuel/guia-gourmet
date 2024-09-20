@@ -3,12 +3,20 @@ import { useParams } from "react-router-dom";
 import { useLoading } from "./loading.context";
 import { IRestaurant } from "../interfaces/restaurant.interface";
 import data from "../@mock/db.json";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
 // Criar a interface que vai conter os valores das variaveis/estados/funções globais
 interface RestaurantProps {
   rating: number;
   setRating: React.Dispatch<React.SetStateAction<number>>;
   restaurants: IRestaurant[];
+  filterRestarurants: (id: string) => void;
 }
 
 // Criar o contexto passando os valores default que tem na minha interface
@@ -16,6 +24,7 @@ const RestaurantContext = createContext<RestaurantProps>({
   rating: 0,
   setRating: () => null,
   restaurants: [],
+  filterRestarurants: () => null,
 });
 
 interface RestaurantProviderProps {
@@ -35,20 +44,47 @@ const RestaurantProvider = ({ children }: RestaurantProviderProps) => {
   const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
 
   useEffect(() => {
+    console.log("id", id);
     handleLoading(true);
-    const info = new Promise<IRestaurant[]>((resolve) => {
-      setTimeout(() => {
-        resolve(
-          data.restaurants.filter((item) => (id ? item.category === id : true))
-        );
-      }, 2000);
-    });
 
-    info.then((resp) => {
-      setRestaurants(resp);
-      handleLoading(false);
-    });
+    const db = getFirestore();
+
+    const restaurantsRef = collection(db, "restaurants");
+
+    if (!id) {
+      getDocs(restaurantsRef).then((restaurants) => {
+        const restaurantsData = restaurants.docs.map((restaurant) => {
+          return {
+            ...restaurant.data(),
+            id: restaurant.id,
+          };
+        });
+        setRestaurants(restaurantsData as IRestaurant[]);
+        handleLoading(false);
+      });
+    } else {
+    }
   }, [id]);
+
+  const filterRestarurants = (id: string) => {
+    const db = getFirestore();
+
+    const queryRef = query(
+      collection(db, "restaurants"),
+      where("category", "==", id)
+    );
+
+    getDocs(queryRef).then((restaurants) => {
+      const restaurantsData = restaurants.docs.map((restaurant) => {
+        return {
+          ...restaurant.data(),
+          id: restaurant.id,
+        };
+      });
+
+      setRestaurants(restaurantsData as IRestaurant[]);
+    });
+  };
 
   return (
     <RestaurantContext.Provider
@@ -56,6 +92,7 @@ const RestaurantProvider = ({ children }: RestaurantProviderProps) => {
         rating, // isso é igual a isso -> rating: rating,
         setRating,
         restaurants,
+        filterRestarurants,
       }}
     >
       {children}

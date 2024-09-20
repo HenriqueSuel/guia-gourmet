@@ -9,7 +9,7 @@
     {
       "id": "1",
       "name": "Si Señor",
-      "category": "1",
+      "category": "EzlxHM4AGU7dAqxuddMZ",
       "image": "/assets/mexicano-1.avif",
       "description": "Restaurante de alto padrão trazendo pratos clássicos do México.",
       "price": "$$",
@@ -19,7 +19,7 @@
     {
       "id": "2",
       "name": "El Mariachi",
-      "category": "1",
+      "category": "EzlxHM4AGU7dAqxuddMZ",
       "image": "/assets/mexicano-2.avif",
       "description": "Comida mexicana autêntica com uma atmosfera vibrante.",
       "price": "$$",
@@ -29,7 +29,7 @@
     {
       "id": "3",
       "name": "La Taqueria",
-      "category": "1",
+      "category": "EzlxHM4AGU7dAqxuddMZ",
       "image": "/assets/mexicano-3.avif",
       "description": "Especializado em tacos e burritos deliciosos.",
       "price": "$",
@@ -39,7 +39,7 @@
     {
       "id": "4",
       "name": "Tacos & Tequila",
-      "category": "1",
+      "category": "EzlxHM4AGU7dAqxuddMZ",
       "image": "/assets/mexicano-4.jpg",
       "description": "Um lugar para experimentar tacos com uma grande variedade de tequilas.",
       "price": "$$$",
@@ -49,7 +49,7 @@
     {
       "id": "5",
       "name": "La Vida Loca",
-      "category": "1",
+      "category": "EzlxHM4AGU7dAqxuddMZ",
       "image": "/assets/mexicano-5.jpg",
       "description": "Pratos mexicanos tradicionais em um ambiente descontraído.",
       "price": "$",
@@ -59,7 +59,7 @@
     {
       "id": "6",
       "name": "Sushi House",
-      "category": "2",
+      "category": "pzmUeyVo5j1zpcDr5Zvx",
       "image": "/assets/japones-1.jpg",
       "description": "Especialidades japonesas frescas, incluindo sushi e sashimi.",
       "price": "$$$",
@@ -69,7 +69,7 @@
     {
       "id": "7",
       "name": "Sakura Sushi",
-      "category": "2",
+      "category": "pzmUeyVo5j1zpcDr5Zvx",
       "image": "/assets/japones-2.jpg",
       "description": "Um restaurante japonês com uma grande variedade de pratos e uma atmosfera acolhedora.",
       "price": "$$$",
@@ -79,7 +79,7 @@
     {
       "id": "8",
       "name": "Ramen Express",
-      "category": "2",
+      "category": "pzmUeyVo5j1zpcDr5Zvx",
       "image": "/assets/japones-3.jpeg",
       "description": "Oferece ramen autêntico e outros pratos japoneses rápidos.",
       "price": "$$",
@@ -89,7 +89,7 @@
     {
       "id": "9",
       "name": "Tempura Delight",
-      "category": "2",
+      "category": "pzmUeyVo5j1zpcDr5Zvx",
       "image": "/assets/japones-4.jpeg",
       "description": "Famoso por seu tempura crocante e pratos de peixe fresco.",
       "price": "$$$",
@@ -99,7 +99,7 @@
     {
       "id": "10",
       "name": "Tokyo Grill",
-      "category": "2",
+      "category": "pzmUeyVo5j1zpcDr5Zvx",
       "image": "/assets/japones-5.jpg",
       "description": "Grill japonês com uma variedade de pratos grelhados e sushi.",
       "price": "$$$",
@@ -109,7 +109,7 @@
     {
       "id": "11",
       "name": "Bella Italia",
-      "category": "3",
+      "category": "dXzYJe35yqalysb15YxR",
       "image": "/assets/italiano-1.jpeg",
       "description": "Autêntica comida italiana com pizzas e massas feitas na hora.",
       "price": "$$",
@@ -119,7 +119,7 @@
     {
       "id": "12",
       "name": "La Dolce Vita",
-      "category": "3",
+      "category": "dXzYJe35yqalysb15YxR",
       "image": "/assets/italiano-2.jpeg",
       "description": "Delícias italianas, incluindo pratos clássicos e sobremesas.",
       "price": "$$",
@@ -129,7 +129,7 @@
     {
       "id": "13",
       "name": "Pasta Pronto",
-      "category": "3",
+      "category": "dXzYJe35yqalysb15YxR",
       "image": "/assets/italiano-3.jpeg",
       "description": "Especializado em massas frescas e molhos autênticos.",
       "price": "$",
@@ -139,7 +139,7 @@
     {
       "id": "14",
       "name": "Pizza Paradiso",
-      "category": "3",
+      "category": "dXzYJe35yqalysb15YxR",
       "image": "/assets/italiano-4.webp",
       "description": "Uma grande seleção de pizzas artesanais e ingredientes frescos.",
       "price": "$$",
@@ -149,7 +149,7 @@
     {
       "id": "15",
       "name": "Trattoria da Marco",
-      "category": "3",
+      "category": "dXzYJe35yqalysb15YxR",
       "image": "/assets/italiano-5.jpg",
       "description": "Restaurante italiano com pratos tradicionais e ambiente acolhedor.",
       "price": "$$",
@@ -159,7 +159,7 @@
     {
       "id": "16",
       "name": "Sabor do Brasil",
-      "category": "4",
+      "category": "tNhP8xTaMaCbOulKtnkU",
       "image": "/assets/brasileiro-1.webp",
       "description": "Oferece uma variedade de pratos típicos brasileiros em um ambiente alegre.",
       "price": "$$",
@@ -169,7 +169,7 @@
     {
       "id": "17",
       "name": "Churrascaria Rio",
-      "category": "4",
+      "category": "tNhP8xTaMaCbOulKtnkU",
       "image": "/assets/brasileiro-2.jpg",
       "description": "Famosa por seu churrasco e pratos típicos do Brasil.",
       "price": "$$$",
@@ -179,7 +179,7 @@
     {
       "id": "18",
       "name": "Boteco do João",
-      "category": "4",
+      "category": "tNhP8xTaMaCbOulKtnkU",
       "image": "/assets/brasileiro-3.jpeg",
       "description": "Comida de boteco com uma variedade de petiscos e pratos tradicionais.",
       "price": "$",
@@ -189,7 +189,7 @@
     {
       "id": "19",
       "name": "Feijoada & Cia",
-      "category": "4",
+      "category": "tNhP8xTaMaCbOulKtnkU",
       "image": "/assets/brasileiro-4.jpg",
       "description": "Especializado em feijoada e outros pratos brasileiros tradicionais.",
       "price": "$$",
@@ -199,7 +199,7 @@
     {
       "id": "20",
       "name": "Café da Manhã Brasileiro",
-      "category": "4",
+      "category": "tNhP8xTaMaCbOulKtnkU",
       "image": "/assets/brasileiro-5.webp",
       "description": "Oferece uma variedade de opções para um café da manhã brasileiro autêntico.",
       "price": "$",

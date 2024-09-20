@@ -81,7 +81,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           {data.map((category) => (
             <Link key={category.id} to={`/category/${category.id}`}>
-              {category.title} - {category.id}
+              {category.title}
             </Link>
           ))}
           <div className="relative">
